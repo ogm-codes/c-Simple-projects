@@ -1,5 +1,7 @@
 # c-Simple-projects
-This contains contains simple c++ program
-The program is a breakdown of how seating operates in a cinema
-Its a small-scale demo project
-The complete project will be released in a few months
+This contains contains simple c++ programs.
+In this respitory are simple console c++ programs.
+I use these programs as ground point for writing other sophisticated
+software.
+
+OGM.
