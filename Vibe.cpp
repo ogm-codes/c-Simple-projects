@@ -15,6 +15,10 @@
 using namespace std;
 
 const int SIZE = 10;
+const double PTA = 100.00;
+const double JHB = 120.00;
+const double CPT = 180.00;
+const double DBN = 150.00;
 void welcomeMessage();
 
 int main()
@@ -22,13 +26,19 @@ int main()
 	string location;
 	string cities[SIZE];
 	ifstream inputFile;	
-	bool found;
+	bool found,hit;
 	int count;
+	unsigned int tickets;
+	float bill;
 
 	inputFile.open("Hotcity.txt");
 	welcomeMessage();
+	tickets = 0;
+	bill = 0;
+	
 	cout << " " << endl;
-	cout << "Where do wana vibe!?" << endl;
+	
+	cout << "Where do you wana vibe!? ";
 	getline(cin, location);
 
 	//Populate the array with latest "Party" cities
@@ -39,6 +49,7 @@ int main()
 
 	//Search for the city
 	found = false;
+	hit = false;
 	count = 0;
 	while (found == false && count < SIZE)
 	{
@@ -52,15 +63,55 @@ int main()
 		}
 	}
 
-	// Only basic no error detection and all that.
+	// Important loactions 
 	if (found)
 	{
 		cout << " We do vibe in " << location << endl;
+		if (location == "Pretoria")
+		{
+			hit = true;
+			cout << " Tickets cost R100.00 per Gig." << endl;
+			cout << " How many tickets do you want ?" << endl;
+			cin >> tickets;
+			bill = tickets * PTA;
+		}
+		if (location == "Cape Town")
+		{
+			hit = true;
+			cout << " Tickets cost R180.00 per Gig." << endl;
+			cout << " How many tickets do you want ?" << endl;
+			cin >> tickets;
+			bill = tickets * CPT;
+		}
+		if (location == "Durban")
+		{
+			hit = true;
+			cout << " Tickets cost R150.00 per Gig." << endl;
+			cout << " How many tickets do you want ?" << endl;
+			cin >> tickets;
+			bill = tickets * DBN;
+		}
+		if (location == "Johannesburg")
+		{
+			hit = true;
+			cout << " Tickets cost R120.00 per Gig." << endl;
+			cout << " How many tickets do you want ?" << endl;
+			cin >> tickets;
+			bill = tickets * JHB;
+		}
+
 	}
 	else
 	{
 		cout << " Sorry, we don't vibe in " << location << endl;
 	}
+
+	cout << " Enjoy the Vibe in " << location << endl;
+	if (hit == true)
+	{
+		cout << " Tickets bought = R" << bill << endl;
+	}
+	
 
 	inputFile.close();
 	system("pause");
